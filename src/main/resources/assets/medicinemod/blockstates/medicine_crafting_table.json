@@ -1,0 +1,5 @@
+{
+  "variants": {
+    "": {"model": "medicinemod:block/medicine_crafting_table"}
+  }
+}
