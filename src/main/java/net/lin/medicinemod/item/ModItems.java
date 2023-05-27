@@ -15,6 +15,8 @@ public class ModItems {
             new Item(new FabricItemSettings().group(ModItemGroup.MEDICINE)));
     public static final Item WHITE_PILL=registerItem("white_pill",
             new Item(new FabricItemSettings().group(ModItemGroup.MEDICINE)));
+    public static final Item WHITE_POWDER=registerItem("white_powder",
+            new Item(new FabricItemSettings().group(ModItemGroup.MEDICINE)));
     private static Item registerItem(String name, Item item){
         return Registry.register(Registry.ITEM,new Identifier(MedicineMod.MOD_ID,name),item);
     }

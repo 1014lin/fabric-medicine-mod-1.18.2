@@ -5,6 +5,7 @@ import net.fabricmc.api.ModInitializer;
 import net.lin.medicinemod.block.ModBlocks;
 import net.lin.medicinemod.block.custom.entity.ModBlockEntities;
 import net.lin.medicinemod.item.ModItems;
+import net.lin.medicinemod.recipe.ModRecipes;
 import net.lin.medicinemod.screen.ModScreenHandlers;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,7 +23,7 @@ public class MedicineMod implements ModInitializer {
 		ModBlocks.registerModBlocks();
 		ModBlockEntities.registerAllBlockEntities();
 		ModScreenHandlers.registerAllScreenHandlers();
-		
+		ModRecipes.registerRecipes();
 		LOGGER.info("Hello Fabric world!");
 	}
 }

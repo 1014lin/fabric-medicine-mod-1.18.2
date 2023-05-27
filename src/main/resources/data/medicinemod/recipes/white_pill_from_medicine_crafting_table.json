@@ -1,0 +1,14 @@
+{
+  "type": "medicinemod:medicine_crafting_table",
+  "ingredients": [
+    {
+      "item": "minecraft:white_tulip"
+    },
+    {
+      "item": "minecraft:white_tulip"
+    }
+  ],
+  "output": {
+    "item": "medicinemod:white_powder"
+  }
+}

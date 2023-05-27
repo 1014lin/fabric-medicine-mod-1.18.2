@@ -1,11 +1,14 @@
 package net.lin.medicinemod.screen;
 
+import net.lin.medicinemod.screen.slot.ModFuelSlot;
 import net.lin.medicinemod.screen.slot.ModResultSlot;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.ItemStack;
+import net.minecraft.screen.ArrayPropertyDelegate;
+import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.screen.ScreenHandler;
 
 import net.minecraft.screen.slot.Slot;
@@ -13,22 +16,54 @@ import net.minecraft.screen.slot.Slot;
 
 public class MedicineCraftingTableScreenHandler extends ScreenHandler {
     private final Inventory inventory;
+    private final PropertyDelegate propertyDelegate;
+
     public MedicineCraftingTableScreenHandler(int syncId, PlayerInventory playerInventory) {
-        this(syncId,playerInventory,new SimpleInventory(4));
+        this(syncId, playerInventory, new SimpleInventory(4), new ArrayPropertyDelegate(4));
     }
 
-    public MedicineCraftingTableScreenHandler(int syncId, PlayerInventory playerInventory, Inventory inventory) {
+    public MedicineCraftingTableScreenHandler(int syncId, PlayerInventory playerInventory,
+                                       Inventory inventory, PropertyDelegate delegate) {
         super(ModScreenHandlers.MEDICINE_CRAFTING_TABLE_HANDLER, syncId);
-        checkSize(inventory,4);
+        checkSize(inventory, 4);
         this.inventory = inventory;
         inventory.onOpen(playerInventory.player);
+        this.propertyDelegate = delegate;
 
-        this.addSlot(new Slot(inventory,0,18,50));
-        this.addSlot(new Slot(inventory,1,66,16));
-        this.addSlot(new Slot(inventory,2,66,50));
-        this.addSlot(new ModResultSlot(inventory,3,114,33));
+        //
+        this.addSlot(new ModFuelSlot(inventory, 0, 18, 50));
+        this.addSlot(new Slot(inventory, 1, 66, 16));
+        this.addSlot(new Slot(inventory, 2, 66, 50));
+        this.addSlot(new ModResultSlot(inventory, 3, 114, 33));
+
         addPlayerInventory(playerInventory);
         addPlayerHotbar(playerInventory);
+
+        addProperties(delegate);
+    }
+
+    public boolean isCrafting() {
+        return propertyDelegate.get(0) > 0;
+    }
+
+    public boolean hasFuel() {
+        return propertyDelegate.get(2) > 0;
+    }
+
+    public int getScaledProgress() {
+        int progress = this.propertyDelegate.get(0);
+        int maxProgress = this.propertyDelegate.get(1);  // Max Progress
+        int progressArrowSize = 26; // This is the width in pixels of your arrow
+
+        return maxProgress != 0 && progress != 0 ? progress * progressArrowSize / maxProgress : 0;
+    }
+
+    public int getScaledFuelProgress() {
+        int fuelProgress = this.propertyDelegate.get(2);
+        int maxFuelProgress = this.propertyDelegate.get(3);
+        int fuelProgressSize = 14;
+
+        return maxFuelProgress != 0 ? (int)(((float)fuelProgress / (float)maxFuelProgress) * fuelProgressSize) : 0;
     }
 
     @Override
