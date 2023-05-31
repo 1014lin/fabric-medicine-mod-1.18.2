@@ -17,6 +17,11 @@ repositories {
 	// See https://docs.gradle.org/current/userguide/declaring_repositories.html
 	// for more information about repositories.
 	maven {url = "https://maven.kyrptonaught.dev"}
+
+	maven {
+		name = "CottonMC"
+		url = "https://server.bbkr.space/artifactory/libs-release"
+	}
 }
 
 dependencies {
@@ -30,6 +35,8 @@ dependencies {
 
 	modImplementation 'net.kyrptonaught:customportalapi:0.0.1-beta50-1.18'
 	include 'net.kyrptonaught:customportalapi:0.0.1-beta50-1.18'
+
+	modImplementation include("io.github.cottonmc:LibGui:7.1.0+1.19.4")
 }
 
 processResources {
