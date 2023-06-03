@@ -36,7 +36,7 @@ dependencies {
 	modImplementation 'net.kyrptonaught:customportalapi:0.0.1-beta50-1.18'
 	include 'net.kyrptonaught:customportalapi:0.0.1-beta50-1.18'
 
-	modImplementation include("io.github.cottonmc:LibGui:7.1.0+1.19.4")
+	modImplementation include("io.github.cottonmc:LibGui:5.4.2+1.18.2")
 }
 
 processResources {

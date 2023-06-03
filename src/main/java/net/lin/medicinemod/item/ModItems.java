@@ -15,6 +15,24 @@ public class ModItems {
             new Item(new FabricItemSettings().group(ModItemGroup.MEDICINE)));
     public static final Item WHITE_PILL=registerItem("white_pill",
             new Item(new FabricItemSettings().group(ModItemGroup.MEDICINE)));
+    public static final Item BLACK_PILL=registerItem("black_pill",
+            new Item(new FabricItemSettings().group(ModItemGroup.MEDICINE)));
+    public static final Item GREEN_PILL=registerItem("green_pill",
+            new Item(new FabricItemSettings().group(ModItemGroup.MEDICINE)));
+    public static final Item PINK_PILL=registerItem("pink_pill",
+            new Item(new FabricItemSettings().group(ModItemGroup.MEDICINE)));
+    public static final Item BLUE_PILL=registerItem("blue_pill",
+            new Item(new FabricItemSettings().group(ModItemGroup.MEDICINE)));
+    public static final Item GRAY_PILL=registerItem("gray_pill",
+            new Item(new FabricItemSettings().group(ModItemGroup.MEDICINE)));
+    public static final Item PURPLE_PILL=registerItem("purple_pill",
+            new Item(new FabricItemSettings().group(ModItemGroup.MEDICINE)));
+    public static final Item RED_PILL=registerItem("red_pill",
+            new Item(new FabricItemSettings().group(ModItemGroup.MEDICINE)));
+    public static final Item ORANGE_PILL=registerItem("orange_pill",
+            new Item(new FabricItemSettings().group(ModItemGroup.MEDICINE)));
+    public static final Item YELLOW_PILL=registerItem("yellow_pill",
+            new Item(new FabricItemSettings().group(ModItemGroup.MEDICINE)));
     public static final Item WHITE_POWDER=registerItem("white_powder",
             new Item(new FabricItemSettings().group(ModItemGroup.MEDICINE)));
     private static Item registerItem(String name, Item item){
